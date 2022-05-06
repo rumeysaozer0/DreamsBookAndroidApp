@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+
+        android:id="@+id/splashFragment"
+        android:name="com.rumeysaozer.hayallerkitabi.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_splashFragment_to_hayallerFragment"
+            app:destination="@id/hayallerFragment" />
+    </fragment>
+    <fragment
+
+        android:id="@+id/gerceklestiFragment"
+        android:name="com.rumeysaozer.hayallerkitabi.GerceklestiFragment"
+        android:label="fragment_gerceklesti"
+        tools:layout="@layout/fragment_gerceklesti" >
+        <action
+            app:popUpTo="@id/gerceklestiFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_gerceklestiFragment_to_gerceklesenHayaller"
+            app:destination="@id/gerceklesenHayaller" />
+        <argument
+            android:name="mid"
+            app:argType="integer" />
+        <argument
+            android:name="value"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument
+            android:name="picture"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/gerceklesenHayaller"
+        android:name="com.rumeysaozer.hayallerkitabi.GerceklesenHayaller"
+        android:label="fragment_gerceklesen_hayaller"
+        tools:layout="@layout/fragment_gerceklesen_hayaller" >
+        <action
+            android:id="@+id/action_gerceklesenHayaller_to_gerceklestiFragment"
+            app:destination="@id/gerceklestiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hayallerFragment"
+        android:name="com.rumeysaozer.hayallerkitabi.HayallerFragment"
+        android:label="fragment_hayaller"
+        tools:layout="@layout/fragment_hayaller" >
+        <action
+            android:id="@+id/action_hayallerFragment_to_gerceklesenHayaller"
+            app:destination="@id/gerceklesenHayaller" />
+        <action
+            android:id="@+id/action_hayallerFragment_to_hayalEkleFragment2"
+            app:destination="@id/hayalEkleFragment" />
+    </fragment>
+    <fragment
+
+
+        android:id="@+id/hayalEkleFragment"
+        android:name="com.rumeysaozer.hayallerkitabi.HayalEkleFragment"
+        android:label="fragment_hayal_ekle"
+        tools:layout="@layout/fragment_hayal_ekle" >
+        <action
+            app:popUpTo="@id/hayalEkleFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_hayalEkleFragment_to_gerceklestiFragment"
+            app:destination="@id/gerceklestiFragment" />
+        <argument
+            android:name="mid"
+            app:argType="integer" />
+        <argument
+            android:name="value"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_hayalEkleFragment_to_hayallerFragment"
+            app:destination="@id/hayallerFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+    </fragment>
+</navigation>
